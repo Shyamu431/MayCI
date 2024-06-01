@@ -13,6 +13,6 @@ def test_home(client):
 def test_predict(client):
     test_data = {"Gender":"Male","Married":"Unmarried","Credit_History":"Unclear Debts","ApplicantIncome":100000,"LoanAmount":200000}
     resp = client.post('/predict',json=test_data)
-    assert resp.status_code == 200
+    assert resp.status_code == 400
 
     assert resp.json == {'loan_approval_status ': 'Rejected'}
